@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VMI Alumni - Jack Liselli</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            background-color: #0a0a0a;
+            color: #f0f0f0;
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .card {
+            animation: fadeIn 1s ease-in-out;
+            width: 100%;
+            padding: 20px;
+            background: rgba(34, 34, 34, 0.95);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .futuristic-text {
+            text-shadow: 0 0 5px #00ffea, 0 0 10px #00ffea, 0 0 20px #00ffea;
+        }
+
+        footer {
+            width: 100%;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        header, nav ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        nav ul {
+            padding: 0;
+        }
+
+        nav ul li {
+            list-style: none;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .glow-button {
+            border: none;
+            padding: 15px 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #333;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px #00ffea, 0 0 30px #00ffea, 0 0 40px #00ffea;
+        }
+
+        .glow-button:hover {
+            box-shadow: 0 0 40px #ff4da6, 0 0 60px #ff4da6, 0 0 80px #ff4da6;
+        }
+
+        .letter {
+            font-family: 'Orbitron', sans-serif;
+            color: #f0f0f0;
+            background: rgba(34, 34, 34, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .letter p {
+            margin: 1em 0;
+        }
+
+        .letter p.signature {
+            margin-top: 2em;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="shooting-stars"></div>
+    <div class="asteroids"></div>
+    <div class="galaxy-container">
+        <div class="galaxy-layer"><div class="galaxy"></div></div>
+        <div class="galaxy-layer"><div class="galaxy"></div></div>
+        <div class="galaxy-layer"><div class="galaxy"></div></div>
+    </div>
+
+    <header class="small-header">
+        <div class="container">
+            <div id="branding">
+                <h1 class="futuristic-text">Jack Liselli</h1>
+                <p>Electrical and Computer Engineering, Virginia Military Institute Alumni</p>
+                <p>Morrison, CO 80465</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="index.html#professional-summary">Professional Summary</a></li>
+                    <li><a href="index.html#skills">Skills</a></li>
+                    <li><a href="index.html#experience">Experience</a></li>
+                    <li><a href="index.html#education">Education</a></li>
+                    <li><a href="index.html#awards">Awards</a></li>
+                    <li><a href="articles.html">Articles</a></li>
+                    <li><a href="vmi-alumni.html">VMI Alumni</a></li>
+                    <li><a href="recommendation-letters.html">Recommendation Letters</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="main-content">
+            <section class="card">
+                <button class="btn btn-back glow-button" onclick="location.href='index.html'"><i class="fas fa-arrow-left"></i> Back to Home</button>
+                <h2 class="futuristic-text">VMI Alumni</h2>
+                <div class="letter">
+                    <p>Dear Alumni,</p>
+                    <p>Thank you for the opportunity to introduce myself. I graduated May 16, 2024 with a double engineering degree in Electrical and Computer Engineering (ECE) from Virginia Military Institute.</p>
+                    <p>During my academic career, I had the privilege of working with VMI ECE cadets as the lead software engineer in capstone. I collaborated with my fellow ECE brothers in the development of a hiking trail application for paraplegic veterans, athletes, and mobile disabled individuals. The application implemented trails, obstacles, weather, and location services and such, allowing for individuals who have mobility challenges to navigate hiking paths and trails. I was recently the recipient of the Certificate of Appreciation from Quality of Life +, in recognition of support to the QL+ Mission through my contribution to HETAP (High Efficiency Trail Assessment Process) Update challenge.</p>
+                    <p>I am also a division 1 lacrosse player. I played goalie for the lacrosse team and was a 4-year lacrosse scholarship recipient. In 2022, we made our first appearance in the SOCON playoffs. I received a place on the SOCON All-Tournament Team and player of the week. Although my time on the field was thwarted due to a hip injury, I continue to support my team with enthusiasm. We finished this year continuing to break strides in our performance.</p>
+                    <p>In my free time, I develop applications and craft code software for personal use. As I learn new skills, I apply those skills to the applications I have engineered and designed.</p>
+                    <p>I am a results and quality-oriented person. Whether working on academic, extracurricular, or professional projects, I apply proven leadership and critical thinking skills, which I hope to leverage into electrical and computer engineering roles.</p>
+                    <p>After reviewing my resume, I hope you will agree that I am the type of competent and competitive candidate companies are looking for. I look forward to elaborating on how my specific skills and abilities will benefit electrical and computer engineering firms. Please feel free to contact me at 303-883-8361 or via email at jwliselli@gmail.com to arrange for a convenient time to connect.</p>
+                    <p>Thank you for your time, and I look forward to connecting with you soon.</p>
+                    <p>Sincerely,</p>
+                    <p class="signature">JACK LISELLI</p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Jack Liselli. All Rights Reserved.</p>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/your-profile" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/your-profile" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/your-profile" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+    </footer>
+
+    <button class="scroll-to-top" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Scroll to the top function
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Show/Hide Scroll-to-top button
+        window.addEventListener('scroll', function() {
+            const scrollButton = document.querySelector('.scroll-to-top');
+            if (window.scrollY > 200) {
+                scrollButton.style.display = 'block';
+            } else {
+                scrollButton.style.display = 'none';
+            }
+        });
+
+        // Create stars, asteroids, and shooting stars
+        function createSpaceElements() {
+            const starCount = 500;
+            const shootingStarCount = 10;
+            const asteroidCount = 30;
+
+            // Create stationary stars
+            for (let i = 0; i < starCount; i++) {
+                createStar();
+            }
+
+            // Create shooting stars
+            for (let i = 0; i < shootingStarCount; i++) {
+                createShootingStar();
+            }
+
+            // Create asteroids
+            for (let i = 0; i < asteroidCount; i++) {
+                createAsteroid();
+            }
+
+            // Create galaxy layers
+            createGalaxyLayers();
+        }
+
+        function createStar() {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = `${Math.random() * 100}vw`;
+            star.style.top = `${Math.random() * 100}vh`;
+            star.style.animationDuration = `${Math.random() * 5 + 5}s`;
+            document.body.appendChild(star);
+        }
+
+        function createShootingStar() {
+            const shootingStar = document.createElement('div');
+            shootingStar.className = 'shooting-star';
+            shootingStar.style.left = `${Math.random() * 100}vw`;
+            shootingStar.style.top = `${Math.random() * 100}vh`;
+            shootingStar.style.animationDelay = `${Math.random() * 20}s`;
+            document.body.appendChild(shootingStar);
+        }
+
+        function createAsteroid() {
+            const asteroid = document.createElement('div');
+            asteroid.className = 'asteroid';
+            asteroid.style.left = `${Math.random() * 100}vw`;
+            asteroid.style.top = `${Math.random() * 100}vh`;
+            asteroid.style.animationDuration = `${Math.random() * 50 + 50}s`;
+            document.body.appendChild(asteroid);
+        }
+
+        function createGalaxyLayers() {
+            const galaxyContainer = document.querySelector('.galaxy-container');
+            for (let i = 0; i < 3; i++) {
+                const galaxyLayer = document.createElement('div');
+                galaxyLayer.className = 'galaxy-layer';
+                const galaxy = document.createElement('div');
+                galaxy.className = 'galaxy';
+                galaxyLayer.appendChild(galaxy);
+                galaxyContainer.appendChild(galaxyLayer);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', createSpaceElements);
+    </script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+/* General Styles */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Lora', serif;
+    background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+    color: #f0f0f0;
+}
+
+/* Container Styles */
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Game Container Styles */
+.game-container {
+    background: rgba(34, 34, 34, 0.95);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #f0f0f0;
+}
+
+/* Button Styles */
+.game button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 20px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.game button:hover {
+    background-color: #555;
+    transform: scale(1.05);
+}
+
+/* Canvas Styles */
+canvas {
+    border: 1px solid #555;
+    background: radial-gradient(circle at center, #000, #001a33);
+    position: relative;
+    z-index: 1;
+}
+
+/* Score Styles */
+.score, .game-over {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+/* Character Selection Styles */
+.character-selection {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.character {
+    margin: 0 10px;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    transition: transform 0.3s;
+    border-radius: 5px;
+}
+
+.character:hover {
+    transform: scale(1.1);
+}
+
+.selected {
+    border: 2px solid #00ff00;
+    border-radius: 5px;
+}
+
+/* Character Backgrounds */
+.char1 { background: linear-gradient(45deg, #ff0000, #ff7f00); border-radius: 50%; }
+.char2 { background: linear-gradient(45deg, #00ff00, #007f00); border-radius: 0%; }
+.char3 { background: linear-gradient(45deg, #0000ff, #007fff); clip-path: polygon(50% 0%, 100% 100%, 0% 100%); }
+.char4 { background: linear-gradient(45deg, #ffff00, #ff007f); clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%); }
+.char5 { background: linear-gradient(45deg, #ff00ff, #7f00ff); border-radius: 25%; }
+
+/* Header Styles */
+header .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.futuristic-text {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 48px;
+    color: #00ff00;
+    text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 20px #00ff00;
+}
+
+/* Instructions Styles */
+.instructions {
+    font-family: 'Press Start 2P', cursive;
+    color: #00ff00;
+    text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 20px #00ff00;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.instructions h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.instructions p {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    margin: 20px 0;
+}
+
+footer p {
+    font-size: 14px;
+}
+
+/* Dynamic Background */
+.stars {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle, rgba(255,255,255,0.1), rgba(255,255,255,0));
+    animation: starfield 100s linear infinite;
+    z-index: 0;
+}
+
+@keyframes starfield {
+    from { transform: translateY(0); }
+    to { transform: translateY(-100vh); }
+}
+
+.shooting-stars {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.shooting-star {
+    position: absolute;
+    width: 2px;
+    height: 100px;
+    background: linear-gradient(0deg, rgba(255,255,255,1), rgba(255,255,255,0));
+    animation: shooting-star 2s linear infinite;
+}
+
+@keyframes shooting-star {
+    from { transform: translate(-50%, -50%) rotate(45deg) translate3d(0, 0, 0); }
+    to { transform: translate(-50%, -50%) rotate(45deg) translate3d(2000px, -2000px, 0); }
+}

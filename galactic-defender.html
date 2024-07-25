@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galactic Defender</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Orbitron:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="galactic-defender.css">
+    <meta name="description" content="Play Galactic Defender, an exciting space adventure game. Avoid asteroids, collect power-ups, and reach the highest score possible!">
+    <meta property="og:title" content="Galactic Defender">
+    <meta property="og:description" content="Play Galactic Defender, an exciting space adventure game. Avoid asteroids, collect power-ups, and reach the highest score possible!">
+    <meta property="og:image" content="path/to/image.png">
+    <meta property="og:url" content="https://example.com/galactic-defender">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1 class="futuristic-text">Galactic Defender</h1>
+            </div>
+        </div>
+    </header>
+
+    <div class="stars"></div>
+    <div class="shooting-stars"></div>
+
+    <main class="container" role="main">
+        <section class="instructions">
+            <h2>How to Play</h2>
+            <p>Use the left and right arrow keys to move your character.</p>
+            <p>Avoid the incoming asteroids and collect power-ups.</p>
+            <p>Reach the highest score possible and advance through the levels.</p>
+            <p>Press 'Escape' to pause and resume the game.</p>
+            <p>Select your character and start the game to begin defending the galaxy!</p>
+        </section>
+        <section class="game-container">
+            <div class="game">
+                <button class="btn" id="backToHomeBtn" aria-label="Back to Home"><i class="fas fa-arrow-left"></i> Back to Home</button>
+                <h2>Galactic Defender</h2>
+                <p>Select Your Character:</p>
+                <div class="character-selection" role="list">
+                    <div class="character char1" id="character1" onclick="selectCharacter('char1')" role="listitem" aria-label="Character 1"></div>
+                    <div class="character char2" id="character2" onclick="selectCharacter('char2')" role="listitem" aria-label="Character 2"></div>
+                    <div class="character char3" id="character3" onclick="selectCharacter('char3')" role="listitem" aria-label="Character 3"></div>
+                    <div class="character char4" id="character4" onclick="selectCharacter('char4')" role="listitem" aria-label="Character 4"></div>
+                    <div class="character char5" id="character5" onclick="selectCharacter('char5')" role="listitem" aria-label="Character 5"></div>
+                </div>
+                <button id="startGameBtn" style="display:none;">Start Game</button>
+                <div id="gameArea" style="display:none;">
+                    <canvas id="gameCanvas" width="800" height="600" role="img" aria-label="Game Area"></canvas>
+                    <p class="score">Score: <span id="score">0</span></p>
+                    <p class="score">High Score: <span id="highScore">0</span></p>
+                    <p id="gameMessage"></p>
+                </div>
+                <div id="gameOverContainer" style="display: none;">
+                    <p class="game-over"></p>
+                    <button id="playAgainBtn" style="display:none;">Play Again</button>
+                    <button onclick="location.href='index.html'">Exit to Menu</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Jack Liselli. All Rights Reserved.</p>
+    </footer>
+
+    <script src="galactic-defender.js"></script>
+</body>
+
+</html>

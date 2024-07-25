@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Project</title>
+    <link rel="icon" href="header-photo.jpeg" type="image/jpeg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Orbitron', sans-serif;
+            color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            overflow-x: hidden;
+            background-color: #001f3f;
+        }
+        #background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        header {
+            background: #1a1a1a;
+            color: #f0f0f0;
+            padding: 5px 0;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 20px;
+        }
+        .left-section {
+            display: flex;
+            align-items: center;
+        }
+        .vmi-ece-logo img {
+            height: 30px;
+            width: auto;
+            margin-right: 20px;
+        }
+        #branding h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 700;
+            color: #e6b800;
+        }
+        nav ul {
+            padding: 0;
+            list-style: none;
+            display: flex;
+            margin: 0;
+        }
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav ul li a {
+            color: #f0f0f0;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #e6b800;
+        }
+        .showcase {
+            text-align: center;
+            padding: 50px 20px;
+            background: rgba(10, 10, 10, 0.8);
+            color: #e6b800;
+            border-bottom: 2px solid #e6b800;
+        }
+        .showcase h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        .showcase p {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        .card {
+            background: #2a2a2a;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #3a3a3a;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #e6b800;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button[type="submit"] {
+            background: #e6b800;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+        button[type="submit"]:hover {
+            background: #fff;
+            color: #000;
+        }
+        footer {
+            background: #1a1a1a;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            width: 100%;
+        }
+        .social-icons a {
+            color: #ffffff;
+            margin: 0 10px;
+            font-size: 20px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .social-icons a:hover {
+            color: #e6b800;
+            transform: scale(1.2);
+        }
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            background: #e6b800;
+            color: #000;
+            border: none;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+        .scroll-to-top:hover {
+            background: #fff;
+            color: #000;
+            transform: scale(1.2);
+        }
+        .back-to-home {
+            position: fixed;
+            top: 80px;
+            left: 20px;
+            background: #e6b800;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+        .back-to-home:hover {
+            background: #fff;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="background"></canvas>
+    <header>
+        <div class="container">
+            <div class="left-section">
+                <div class="vmi-ece-logo">
+                    <a href="https://www.vmi.edu/academics/departments/electrical-and-computer-engineering/" target="_blank">
+                        <img src="vmi-ece-logo.png" alt="VMI ECE Logo">
+                    </a>
+                </div>
+                <div id="branding">
+                    <h1>Jack Liselli</h1>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="index.html#professional-summary">Professional Summary</a></li>
+                    <li><a href="index.html#skills">Skills</a></li>
+                    <li><a href="index.html#experience">Experience</a></li>
+                    <li><a href="index.html#education">Education</a></li>
+                    <li><a href="index.html#awards">Awards</a></li>
+                    <li><a href="galactic-defender.html">Galactic Defender</a></li>
+                    <li><a href="request.html">Request Project</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="showcase">
+        <h1>Request a Project</h1>
+        <p>Fill out the form below to request a custom project design.</p>
+    </section>
+
+    <div class="container">
+        <form id="request-form" class="card" method="POST" action="/submit">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" autocomplete="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" autocomplete="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="text" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="project-type">Project Type:</label>
+                <select id="project-type" name="project-type" autocomplete="project-type" required>
+                    <option value="website">Website</option>
+                    <option value="mobile-app">Mobile App</option>
+                    <option value="software">Software</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="description">Project Description:</label>
+                <textarea id="description" name="description" rows="5" autocomplete="description" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="hours">Estimated Hours:</label>
+                <input type="number" id="hours" name="hours" required>
+            </div>
+            <div class="form-group">
+                <label for="price">Estimated Price (USD):</label>
+                <input type="number" id="price" name="price" readonly>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Jack Liselli. All Rights Reserved.</p>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/johnliselli/" target="_blank" data-tooltip="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/your-profile" target="_blank" data-tooltip="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/settings/installations/51059212" target="_blank" data-tooltip="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+    </footer>
+
+    <button class="scroll-to-top" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    <button class="back-to-home" onclick="location.href='index.html'">Back to Home</button>
+
+    <script src="background.js"></script>
+    <script>
+        // Scroll to the top function
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Show/Hide Scroll-to-top button
+        window.addEventListener('scroll', function() {
+            const scrollButton = document.querySelector('.scroll-to-top');
+            if (window.scrollY > 200) {
+                scrollButton.style.display = 'block';
+            } else {
+                scrollButton.style.display = 'none';
+            }
+        });
+
+        // Form submission handling
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('request-form');
+            const hoursInput = document.getElementById('hours');
+            const priceInput = document.getElementById('price');
+            const ratePerHour = 55;
+
+            hoursInput.addEventListener('input', function() {
+                const hours = parseFloat(hoursInput.value);
+                const price = isNaN(hours) ? 0 : hours * ratePerHour;
+                priceInput.value = price.toFixed(2);
+            });
+
+            form.addEventListener('submit', async function(event) {
+                event.preventDefault();
+
+                const formData = new FormData(form);
+                const data = {};
+                formData.forEach((value, key) => (data[key] = value));
+
+                const response = await fetch('/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                if (response.ok) {
+                    alert('Your project request has been submitted!');
+                    form.reset();
+                    priceInput.value = '';
+                } else {
+                    alert('There was a problem submitting your request. Please try again.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
