@@ -196,5 +196,10 @@ window.addEventListener('scroll', () => {
     } else {
         header.classList.remove('hide');
     }
+    if (scrollTop > 0) {
+        header.classList.add('shrink');
+    } else {
+        header.classList.remove('shrink');
+    }
     lastScrollTop = scrollTop;
 });

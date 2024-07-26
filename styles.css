@@ -138,7 +138,7 @@ a:hover {
 
 @keyframes drifting {
     0% { transform: translate(0, 0); }
-    100% { transform: translate(-3000px, -1500px); }
+     100% { transform: translate(-3000px, -1500px); }
 }
 
 @keyframes galaxySpin {
@@ -161,15 +161,15 @@ header {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    transition: top 0.3s;
+    transition: top 0.3s, padding 0.3s;
+}
+
+header.shrink {
+    padding: 5px 0;
 }
 
 header.hide {
     top: -100px;
-}
-
-header.small-header {
-    padding: 5px 0;
 }
 
 header .container {
@@ -186,9 +186,9 @@ header .container {
 }
 
 .vmi-ece-logo img {
-    height: 40px;
+    height: 30px;
     width: auto;
-    margin-right: 20px;
+    margin-right: 10px;
     transition: transform 0.3s ease;
 }
 
@@ -198,7 +198,7 @@ header .container {
 
 #branding h1 {
     margin: 0;
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 700;
     color: #e6b800;
     text-shadow: 0 0 5px #e6b800, 0 0 10px #e6b800, 0 0 20px #e6b800;
@@ -218,14 +218,14 @@ nav ul {
 }
 
 nav ul li {
-    margin-left: 20px;
+    margin-left: 10px;
 }
 
 nav ul li a {
     color: #f0f0f0;
     text-decoration: none;
     text-transform: uppercase;
-    font-size: 16px;
+    font-size: 14px;
     transition: color 0.3s ease, transform 0.3s ease;
     padding: 5px;
 }
@@ -244,7 +244,7 @@ nav ul li a:hover {
 
 .social-icons a {
     color: #f0f0f0;
-    font-size: 18px;
+    font-size: 16px;
     transition: color 0.3s ease, transform 0.3s ease;
     position: relative;
 }
@@ -275,17 +275,16 @@ nav ul li a:hover {
 
 .header-buttons {
     display: flex;
-    gap: 10px;
-    margin-top: 10px;
+    gap: 5px;
 }
 
 .header-buttons .btn {
     background: #444;
     color: #fff;
     border: none;
-    padding: 5px 10px;
+    padding: 5px 8px;
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     border-radius: 5px;
     transition: background 0.3s ease, transform 0.3s ease;
 }
@@ -293,6 +292,52 @@ nav ul li a:hover {
 .header-buttons .btn:hover {
     background: #e6b800;
     transform: scale(1.1);
+}
+
+/* Dropdown Menu Styles */
+.dropdown {
+    display: none;
+    position: relative;
+}
+
+.dropbtn {
+    background: #444;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.dropbtn:hover {
+    background: #e6b800;
+    transform: scale(1.1);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #444;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: #e6b800;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
 }
 
 /* Showcase Styles */
@@ -315,14 +360,14 @@ nav ul li a:hover {
 }
 
 .showcase h1 {
-    font-size: 60px;
+    font-size: 50px;
     margin: 0;
     text-shadow: 2px 2px 4px #000000;
     animation: fadeInDown 2s;
 }
 
 .showcase p {
-    font-size: 22px;
+    font-size: 20px;
     text-shadow: 1px 1px 3px #000000;
     animation: fadeInUp 2s;
 }
@@ -332,7 +377,7 @@ nav ul li a:hover {
     text-decoration: none;
     color: #000;
     background: #e6b800;
-    padding: 10px 20px;
+    padding: 8px 16px;
     border-radius: 4px;
     transition: background 0.3s ease, transform 0.3s ease;
     margin-top: 20px;
@@ -643,32 +688,28 @@ footer .social-icons a:hover {
     }
 
     .vmi-ece-logo img {
-        height: 30px;
+        height: 25px;
         margin-bottom: 10px;
     }
 
     #branding h1 {
-        font-size: 24px;
+        font-size: 20px;
     }
 
     nav ul {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    nav ul li {
-        margin-left: 0;
-        margin-bottom: 10px;
+        display: none;
     }
 
     .header-buttons {
-        flex-direction: column;
-        gap: 5px;
-        width: 100%;
+        display: none;
+    }
+
+    .dropdown {
+        display: block;
     }
 
     .showcase h1 {
-        font-size: 40px;
+        font-size: 35px;
     }
 
     .showcase p {
@@ -688,7 +729,7 @@ footer .social-icons a:hover {
     }
 
     .social-icons a {
-        font-size: 16px;
+        font-size: 14px;
     }
 
     footer {
@@ -717,24 +758,24 @@ footer .social-icons a:hover {
     }
 
     .vmi-ece-logo img {
-        height: 25px;
+        height: 20px;
     }
 
     #branding h1 {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     nav ul li a {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .header-buttons .btn {
-        font-size: 0.8rem;
-        padding: 5px 8px;
+        font-size: 0.6rem;
+        padding: 4px 6px;
     }
 
     .showcase h1 {
-        font-size: 30px;
+        font-size: 28px;
     }
 
     .showcase p {
@@ -746,7 +787,7 @@ footer .social-icons a:hover {
     }
 
     .social-icons a {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     footer {
