@@ -138,7 +138,7 @@ a:hover {
 
 @keyframes drifting {
     0% { transform: translate(0, 0); }
-     100% { transform: translate(-3000px, -1500px); }
+    100% { transform: translate(-3000px, -1500px); }
 }
 
 @keyframes galaxySpin {
