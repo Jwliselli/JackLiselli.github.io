@@ -256,15 +256,12 @@ document.querySelector('.dropbtn').addEventListener('click', (event) => {
     dropdownContent.classList.toggle('show');
 });
 
-// Close dropdown if clicked outside
+// Close dropdown if clicked outside or toggle it
 window.addEventListener('click', function(event) {
+    const dropdownContent = document.querySelector('.dropdown-content');
     if (!event.target.matches('.dropbtn')) {
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        for (var i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) {
-                openDropdown.classList.remove('show');
-            }
+        if (dropdownContent.classList.contains('show')) {
+            dropdownContent.classList.remove('show');
         }
     }
 });
