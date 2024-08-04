@@ -256,24 +256,12 @@ document.querySelector('.dropbtn').addEventListener('click', (event) => {
     dropdownContent.classList.toggle('show');
 });
 
-// Close dropdown if clicked outside or toggle it
+// Close dropdown if clicked outside
 window.addEventListener('click', function(event) {
     const dropdownContent = document.querySelector('.dropdown-content');
     if (!event.target.matches('.dropbtn')) {
         if (dropdownContent.classList.contains('show')) {
             dropdownContent.classList.remove('show');
         }
-    }
-});
-
-// Additional Event Listener for Re-click to Close the Menu
-document.querySelector('.dropbtn').addEventListener('click', (event) => {
-    event.stopPropagation(); // Prevent click from propagating
-    const dropdownContent = document.querySelector('.dropdown-content');
-    dropdownContent.classList.toggle('show');
-    if (dropdownContent.classList.contains('show')) {
-        dropdownContent.classList.remove('show');
-    } else {
-        dropdownContent.classList.add('show');
     }
 });
