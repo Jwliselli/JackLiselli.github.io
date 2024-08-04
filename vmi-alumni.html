@@ -27,6 +27,8 @@
             padding: 20px;
             max-width: 1200px;
             margin: auto;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .card {
@@ -36,6 +38,7 @@
             background: rgba(34, 34, 34, 0.95);
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            box-sizing: border-box;
         }
 
         @keyframes fadeIn {
@@ -45,6 +48,7 @@
 
         .futuristic-text {
             text-shadow: 0 0 5px #00ffea, 0 0 10px #00ffea, 0 0 20px #00ffea;
+            text-align: center;
         }
 
         footer {
@@ -57,15 +61,17 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         nav ul {
             padding: 0;
+            margin: 0;
         }
 
         nav ul li {
             list-style: none;
-            margin: 0 10px;
+            margin: 5px;
         }
 
         nav ul li a {
@@ -87,6 +93,10 @@
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 0 20px #00ffea, 0 0 30px #00ffea, 0 0 40px #00ffea;
+            width: 100%;
+            max-width: 200px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
         }
 
         .glow-button:hover {
@@ -100,6 +110,7 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            box-sizing: border-box;
         }
 
         .letter p {
@@ -109,6 +120,48 @@
         .letter p.signature {
             margin-top: 2em;
             text-align: right;
+        }
+
+        .social-icons a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 24px;
+        }
+
+        .scroll-to-top {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 10px #00ffea;
+        }
+
+        .scroll-to-top:hover {
+            box-shadow: 0 0 20px #ff4da6;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .letter {
+                font-size: 14px;
+                padding: 15px;
+            }
+
+            nav ul li {
+                margin: 5px 0;
+            }
+
+            .glow-button {
+                padding: 10px 20px;
+                font-size: 14px;
+                width: 80%;
+            }
         }
     </style>
 </head>

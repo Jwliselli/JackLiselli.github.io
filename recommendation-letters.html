@@ -12,6 +12,9 @@
             flex-direction: column;
             min-height: 100vh;
             margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            background-color: #0a0a0a;
+            color: #f0f0f0;
         }
 
         .container {
@@ -21,6 +24,10 @@
             justify-content: center;
             align-items: center;
             padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .pdf-container {
@@ -28,11 +35,9 @@
             overflow: hidden;
             border-radius: 15px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            width: 90vw;
-            height: 90vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            width: 90%;
+            height: 80vh;
+            max-width: 800px;
         }
 
         .pdf-container embed {
@@ -48,6 +53,7 @@
             padding: 20px;
             display: flex;
             justify-content: center;
+            box-sizing: border-box;
         }
 
         @keyframes fadeIn {
@@ -57,30 +63,101 @@
 
         .futuristic-text {
             text-shadow: 0 0 5px #e6b800, 0 0 10px #e6b800, 0 0 20px #e6b800;
+            text-align: center;
         }
 
         footer {
             width: 100%;
+            text-align: center;
+            padding: 10px 0;
         }
 
         header, nav ul {
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         nav ul {
             padding: 0;
+            margin: 0;
         }
 
         nav ul li {
             list-style: none;
-            margin: 0 10px;
+            margin: 5px;
         }
 
         nav ul li a {
             text-decoration: none;
             color: #fff;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .social-icons a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 24px;
+        }
+
+        .scroll-to-top {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 10px #00ffea;
+        }
+
+        .scroll-to-top:hover {
+            box-shadow: 0 0 20px #ff4da6;
+        }
+
+        .btn-back {
+            border: none;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #333;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px #00ffea, 0 0 30px #00ffea, 0 0 40px #00ffea;
+            width: 100%;
+            max-width: 200px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .btn-back:hover {
+            box-shadow: 0 0 40px #ff4da6, 0 0 60px #ff4da6, 0 0 80px #ff4da6;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .pdf-container {
+                height: 60vh;
+            }
+
+            .btn-back {
+                padding: 8px 16px;
+                font-size: 14px;
+                width: 80%;
+            }
+
+            nav ul li {
+                margin: 5px 0;
+            }
         }
     </style>
 </head>
