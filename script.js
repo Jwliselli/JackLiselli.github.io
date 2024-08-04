@@ -252,7 +252,8 @@ document.addEventListener('DOMContentLoaded', () => {
 // Responsive Dropdown Menu
 document.querySelector('.dropbtn').addEventListener('click', (event) => {
     event.stopPropagation(); // Prevent click from propagating
-    document.querySelector('.dropdown-content').classList.toggle('show');
+    const dropdownContent = document.querySelector('.dropdown-content');
+    dropdownContent.classList.toggle('show');
 });
 
 // Close dropdown if clicked outside
