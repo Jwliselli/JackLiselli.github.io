@@ -182,3 +182,33 @@ footer p {
     from { transform: translate(-50%, -50%) rotate(45deg) translate3d(0, 0, 0); }
     to { transform: translate(-50%, -50%) rotate(45deg) translate3d(2000px, -2000px, 0); }
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .futuristic-text {
+        font-size: 36px;
+    }
+
+    .instructions h2 {
+        font-size: 20px;
+    }
+
+    .instructions p {
+        font-size: 12px;
+    }
+
+    .game button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    .character {
+        width: 40px;
+        height: 40px;
+    }
+
+    canvas {
+        width: 100%;
+        height: auto;
+    }
+}

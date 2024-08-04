@@ -1,39 +1,40 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Define the selectCharacter function here
-    function selectCharacter(characterClass) {
+document.addEventListener('DOMContentLoaded', () => {
+    let selectedCharacter = null;
+    const scoreDisplay = document.getElementById("score");
+    const highScoreDisplay = document.getElementById("highScore");
+    const levelDisplay = document.getElementById("level");
+    const startGameBtn = document.getElementById("startGameBtn");
+    const gameArea = document.getElementById("gameArea");
+    const gameMessage = document.getElementById("gameMessage");
+    const playAgainBtn = document.getElementById("playAgainBtn");
+    const canvas = document.getElementById("gameCanvas");
+    const gameOverContainer = document.getElementById("gameOverContainer");
+    const backToHomeBtn = document.getElementById("backToHomeBtn");
+    const ctx = canvas.getContext('2d');
+
+    let score = 0;
+    let highScore = localStorage.getItem('highScore') || 0;
+    let gameRunning = false;
+    let gamePaused = false;
+    let level = 1;
+    let asteroids = [];
+    let powerUps = [];
+    let player;
+    let gameInterval;
+
+    highScoreDisplay.innerText = highScore;
+
+    // Define the function globally so it can be accessed by HTML onclick handlers
+    window.selectCharacter = function(characterClass) {
         selectedCharacter = characterClass;
         document.querySelectorAll('.character').forEach(el => el.classList.remove('selected'));
-        document.querySelector('.' + characterClass).classList.add('selected');
+        document.querySelector(`.${characterClass}`).classList.add('selected');
         if (startGameBtn) startGameBtn.style.display = "block";
-    }
+    };
 
-    // Game variables
-    var score = 0;
-    var highScore = localStorage.getItem('highScore') || 0;
-    var gameRunning = false;
-    var gamePaused = false;
-    var asteroids = [];
-    var powerUps = [];
-    var player;
-    var gameInterval;
-    var selectedCharacter = null;
-
-    // DOM elements
-    var startGameBtn = document.getElementById("startGameBtn");
-    var gameArea = document.getElementById("gameArea");
-    var gameMessage = document.getElementById("gameMessage");
-    var playAgainBtn = document.getElementById("playAgainBtn");
-    var scoreDisplay = document.getElementById("score");
-    var highScoreDisplay = document.getElementById("highScore");
-    var canvas = document.getElementById("gameCanvas");
-    var gameOverContainer = document.getElementById("gameOverContainer");
-    var backToHomeBtn = document.getElementById("backToHomeBtn");
-    var ctx = canvas.getContext('2d');
-
-    // Create shooting stars dynamically
     function createShootingStars() {
         const shootingStarsContainer = document.querySelector('.shooting-stars');
-        shootingStarsContainer.innerHTML = ''; // Clear existing stars
+        shootingStarsContainer.innerHTML = '';
         for (let i = 0; i < 10; i++) {
             const shootingStar = document.createElement('div');
             shootingStar.className = 'shooting-star';
@@ -45,7 +46,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Player object
     function Player(characterClass) {
         this.width = 50;
         this.height = 50;
@@ -58,10 +58,9 @@ document.addEventListener('DOMContentLoaded', function() {
         this.direction = 0;
         this.characterClass = characterClass;
 
-        // Get the exact background color of the selected character
-        var characterElement = document.querySelector('.' + this.characterClass);
-        var computedStyle = window.getComputedStyle(characterElement);
-        var backgroundColor = computedStyle.backgroundColor;
+        const characterElement = document.querySelector(`.${this.characterClass}`);
+        const computedStyle = window.getComputedStyle(characterElement);
+        const backgroundColor = computedStyle.backgroundColor;
 
         this.draw = function() {
             ctx.fillStyle = backgroundColor;
@@ -132,7 +131,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Asteroid object
     function Asteroid(x, y, size, speed) {
         this.x = x;
         this.y = y;
@@ -145,9 +143,9 @@ document.addEventListener('DOMContentLoaded', function() {
             ctx.shadowColor = "#8B4513";
             ctx.beginPath();
             for (let i = 0; i < 6; i++) {
-                let angle = 2 * Math.PI / 6 * i;
-                let xOffset = this.size * Math.cos(angle);
-                let yOffset = this.size * Math.sin(angle);
+                const angle = 2 * Math.PI / 6 * i;
+                const xOffset = this.size * Math.cos(angle);
+                const yOffset = this.size * Math.sin(angle);
                 if (i === 0) {
                     ctx.moveTo(this.x + xOffset, this.y + yOffset);
                 } else {
@@ -170,7 +168,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Power-up object
     function PowerUp(x, y, type) {
         this.x = x;
         this.y = y;
@@ -218,6 +215,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         score = 0;
+        level = 1;
         if (startGameBtn) startGameBtn.style.display = "none";
         if (gameArea) gameArea.style.display = "block";
         if (gameOverContainer) gameOverContainer.style.display = "none";
@@ -231,8 +229,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function spawnAsteroids() {
-        for (var i = 0; i < 5 + Math.floor(score / 100); i++) {
-            asteroids.push(new Asteroid(Math.random() * canvas.width, Math.random() * -canvas.height, 20, 2 + Math.random() * 3));
+        for (let i = 0; i < 5 + level; i++) {
+            const size = 20 + Math.random() * 20;
+            const speed = 2 + Math.random() * level;
+            asteroids.push(new Asteroid(Math.random() * canvas.width, Math.random() * -canvas.height, size, speed));
         }
     }
 
@@ -241,45 +241,50 @@ document.addEventListener('DOMContentLoaded', function() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             player.update();
             player.draw();
-            asteroids.forEach(function(asteroid) {
+            asteroids.forEach((asteroid, index) => {
                 asteroid.update();
                 asteroid.draw();
                 if (checkCollision(player, asteroid)) {
                     endGame(false);
                 }
+                if (asteroid.y > canvas.height) {
+                    asteroids.splice(index, 1);
+                    score += 10; // Points for dodging an asteroid
+                }
             });
-            // Draw and update power-ups
             if (Math.random() < 0.01) {
-                var powerUp = new PowerUp(Math.random() * canvas.width, Math.random() * -canvas.height, 'speed');
+                const powerUp = new PowerUp(Math.random() * canvas.width, Math.random() * -canvas.height, 'speed');
                 powerUps.push(powerUp);
             }
-            powerUps.forEach(function(powerUp, index) {
+            powerUps.forEach((powerUp, index) => {
                 powerUp.update();
                 powerUp.draw();
                 if (checkCollision(player, powerUp)) {
                     powerUp.applyEffect(player);
-                    powerUps.splice(index, 1); // Remove power-up after collection
+                    powerUps.splice(index, 1);
                 }
             });
             score++;
             scoreDisplay.innerText = score;
 
-            // Increase difficulty by adding more asteroids
+            // Level up logic
             if (score % 1000 === 0) {
+                level++;
+                levelDisplay.innerText = level;
                 spawnAsteroids();
             }
         }
     }
 
     function checkCollision(player, obj) {
-        var distX = Math.abs(obj.x - player.x - player.width / 2);
-        var distY = Math.abs(obj.y - player.y - player.height / 2);
+        const distX = Math.abs(obj.x - player.x - player.width / 2);
+        const distY = Math.abs(obj.y - player.y - player.height / 2);
         if (distX > (player.width / 2 + obj.size)) return false;
         if (distY > (player.height / 2 + obj.size)) return false;
         if (distX <= (player.width / 2)) return true;
         if (distY <= (player.height / 2)) return true;
-        var dx = distX - player.width / 2;
-        var dy = distY - player.height / 2;
+        const dx = distX - player.width / 2;
+        const dy = distY - player.height / 2;
         return (dx * dx + dy * dy <= (obj.size * obj.size));
     }
 
@@ -303,16 +308,18 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     if (startGameBtn) {
-        startGameBtn.onclick = function() {
+        startGameBtn.onclick = () => {
             console.log("Start Game button clicked");
             startGame();
         }
     }
 
     if (playAgainBtn) {
-        playAgainBtn.onclick = function() {
+        playAgainBtn.onclick = () => {
             score = 0;
+            level = 1;
             scoreDisplay.innerText = score;
+            levelDisplay.innerText = level;
             if (playAgainBtn) playAgainBtn.style.display = "none";
             if (startGameBtn) startGameBtn.style.display = "block";
             if (gameArea) gameArea.style.display = "none";
@@ -322,22 +329,21 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     if (backToHomeBtn) {
-        backToHomeBtn.onclick = function() {
+        backToHomeBtn.onclick = () => {
             console.log("Back to Home button clicked");
-            window.location.href = 'index.html';
+            window.location.href = 'galactic-defender.index'; // Ensure this is the correct path to your home page
         }
     }
 
-    document.addEventListener('keydown', function(e) {
+    document.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowLeft') player.direction = -1;
         if (e.key === 'ArrowRight') player.direction = 1;
         if (e.key === 'Escape') togglePause();
     });
 
-    document.addEventListener('keyup', function(e) {
+    document.addEventListener('keyup', (e) => {
         if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') player.direction = 0;
     });
 
-    // Initialize the shooting stars
     createShootingStars();
 });

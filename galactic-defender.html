@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +13,6 @@
     <meta property="og:image" content="path/to/image.png">
     <meta property="og:url" content="https://example.com/galactic-defender">
 </head>
-
 <body>
     <header>
         <div class="container">
@@ -30,6 +28,7 @@
     <main class="container" role="main">
         <section class="instructions">
             <h2>How to Play</h2>
+            <p>Currently unavaliable due to a few technical issues. Please use back arrow to get back to home page</p>
             <p>Use the left and right arrow keys to move your character.</p>
             <p>Avoid the incoming asteroids and collect power-ups.</p>
             <p>Reach the highest score possible and advance through the levels.</p>
@@ -53,6 +52,7 @@
                     <canvas id="gameCanvas" width="800" height="600" role="img" aria-label="Game Area"></canvas>
                     <p class="score">Score: <span id="score">0</span></p>
                     <p class="score">High Score: <span id="highScore">0</span></p>
+                    <p class="score">Level: <span id="level">1</span></p>
                     <p id="gameMessage"></p>
                 </div>
                 <div id="gameOverContainer" style="display: none;">
@@ -70,5 +70,4 @@
 
     <script src="galactic-defender.js"></script>
 </body>
-
 </html>
