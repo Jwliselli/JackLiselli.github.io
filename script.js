@@ -250,15 +250,21 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Responsive Dropdown Menu
-document.querySelector('.dropbtn').addEventListener('click', (event) => {
+const dropbtn = document.querySelector('.dropbtn');
+const dropdownContent = document.querySelector('.dropdown-content');
+
+dropbtn.addEventListener('click', (event) => {
     event.stopPropagation(); // Prevent click from propagating
-    const dropdownContent = document.querySelector('.dropdown-content');
     dropdownContent.classList.toggle('show');
+});
+
+// Double click to close dropdown
+dropbtn.addEventListener('dblclick', (event) => {
+    dropdownContent.classList.remove('show');
 });
 
 // Close dropdown if clicked outside
 window.addEventListener('click', function(event) {
-    const dropdownContent = document.querySelector('.dropdown-content');
     if (!event.target.matches('.dropbtn')) {
         if (dropdownContent.classList.contains('show')) {
             dropdownContent.classList.remove('show');
